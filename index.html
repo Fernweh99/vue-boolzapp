@@ -52,7 +52,7 @@
       <!-- contact-chat -->
       <div class="contact-chat">
         <ul class="list-group">
-          <li v-for="contact in contacts" class="list-group-item">
+          <li v-for="(contact, i) in contacts" @click="currentIndex = i" class="list-group-item" :class="{active : i === currentIndex}" role="button">
             <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
             <span>{{ contact.name }}</span>
           </li>
@@ -64,10 +64,10 @@
     <section id="chat">
       <!-- contact menu -->
       <div class="contact-menu">
-        <div class="contact-detail">
-          <img src="img/avatar_1.jpg" alt="Michele">
+        <div v-for="(contact, i) in contacts" v-if="i === currentIndex" class="contact-detail">
+          <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
           <div class="d-inline-block">
-            <span>Michele</span>
+            <span>{{ contact.name }}</span>
             <p class="last-access">Ultimo accesso oggi alle</p>
           </div>
         </div>

@@ -2,6 +2,7 @@ const app = new Vue({
   name: 'whatsapp',
   el: "#root",
   data: {
+    currentIndex: 0,
     user: {
       name: 'Nome Utente',
       avatar: '_io'
