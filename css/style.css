@@ -7,10 +7,18 @@ body {
 
 section {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+section > div{
+  flex-shrink: 0;
 }
 
 /* #Main */
 #root {
+  width: 100%;
   height: 100%;
   display: flex;
 }
@@ -19,36 +27,54 @@ section {
 #contacts {
   flex-basis: 450px;
   background-color: darkslateblue;
-  display: flex;
-  flex-direction: column;
 }
 
 /* User Menu */
 .user-menu {
-  height: 80px;
+  height: 70px;
   background-color: #d1d1d1;
 }
 
 /* receive notific */
 .receive-notific {
-  height: 90px;
+  height: 80px;
   background-color: #8EDAFB;
 }
 
 /* search bar */
 .search-bar {
-  height: 50px;
+  height: 40px;
   background-color: #d1d1d1;
 }
 
 /* contact chat */
 .contact-chat {
-  height: 100%;
+  height: calc(100% - 190px);
   background-color: white;
+  overflow-y: auto;
 }
 
 /* #Section chat */
 #chat {
-  flex-grow: 1;
+  flex-basis: calc(100% - 450px);
   background-color: darkcyan;
+}
+
+/* contact menu */
+.contact-menu {
+  height: 70px;
+  background-color: #d1d1d1;
+}
+
+/* chat area */
+.chat-area {
+  height: calc(100% - 140px);
+  background-image: url(../img/mine.jpg);
+  overflow-y: scroll;
+}
+
+/* input chat */
+.input-chat {
+  height: 70px;
+  background-color: #F3EEE9;
 }
