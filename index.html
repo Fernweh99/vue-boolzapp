@@ -32,12 +32,31 @@
       </div>
       <!-- receive notific -->
       <div class="receive-notific">
+        <div class="bell">
+          <i class="fa-solid fa-bell-slash"></i>
+        </div>
+        <div>
+          <div>
+            <p class="my-0">Ricevi notifiche di nuovi messaggi</p>
+            <a href="#">Attiva notifiche desktop</a>
+          </div>
+        </div>
       </div>
       <!-- search bar -->
       <div class="search-bar">
+        <form class="d-flex h-100" role="search">
+          <button class="btn btn-outline-success d-flex align-items-center"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
       </div>
       <!-- contact-chat -->
       <div class="contact-chat">
+        <ul class="list-group">
+          <li v-for="contact in contacts" class="list-group-item">
+            <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
+            <span>{{ contact.name }}</span>
+          </li>
+        </ul>
       </div>
     </section>
 

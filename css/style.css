@@ -51,7 +51,7 @@ section > div{
   align-items: center;
 }
 
-.user-menu .user-options > i{
+.user-menu .user-options > i {
   font-size: 23px;
   margin-right: 15px;
   color: #B1B1B1;
@@ -60,13 +60,35 @@ section > div{
 /* receive notific */
 .receive-notific {
   height: 80px;
+  padding: 15px 20px;
   background-color: #8EDAFB;
+  display: flex;
+}
+
+.receive-notific > div{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.receive-notific .bell {
+  background-color: white;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  margin-right: 15px;
+}
+
+.receive-notific .bell i {
+  font-size: 20px;
+  color: #8EDAFB;
 }
 
 /* search bar */
 .search-bar {
   height: 40px;
   background-color: #EAEAEA;
+  padding: 5px;
 }
 
 /* contact chat */
@@ -74,6 +96,10 @@ section > div{
   height: calc(100% - 190px);
   background-color: white;
   overflow-y: auto;
+}
+
+.contact-chat ul li {
+  height: 85px;
 }
 
 /* #Section chat */
