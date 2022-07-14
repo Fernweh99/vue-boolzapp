@@ -78,24 +78,16 @@
         </div>
       </div>
       <!-- chat area -->
-      <div class="chat-area">
-        <div class="message user">
-          <span class="text-message">Hai portato a spasso il cane?</span>
+      <div v-for="(contact, i) in contacts" v-if="i === currentIndex" class="chat-area">
+        <div v-for="mex in contact.messages" class="message" :class="[{ user: mex.name === 'User'},{'contact': mex.name !== 'User'}]">
+          <span class="text-message">{{ mex.text }}</span>
           <p class="date">10:50</p>
-        </div>
-        <div class="message user">
-          <span class="text-message">Ricordati di dargli da mangiare</span>
-          <p class="date">10:52</p>
-        </div>
-        <div class="message contact">
-          <span class="text-message">Tutto fatto!</span>
-          <p class="date">11:11</p>
         </div>
       </div>
       <!-- input chat -->
       <div class="input-chat">
         <i class="fa-regular fa-face-smile"></i>
-        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+        <input type="text" class="form-control" v-model="currentTextMessage" @keyup.enter="sendAndReceiveMessage" placeholder="Scrivi un messaggio">
         <i class="fa-solid fa-microphone"></i>
       </div>
     </section>
