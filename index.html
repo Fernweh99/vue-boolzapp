@@ -16,18 +16,32 @@
 </head>
 <body class="container">
   <main id="root">
-
+    <!-- #Section contacts -->
     <section id="contacts">
+      <!-- user menu -->
       <div class="user-menu">
+        <div class="user">
+          <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
+          <span>{{ user.name }}</span>
+        </div>
+        <div class="user-options">
+          <i class="fa-solid fa-circle-notch"></i>
+          <i class="fa-solid fa-message"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
       </div>
+      <!-- receive notific -->
       <div class="receive-notific">
       </div>
+      <!-- search bar -->
       <div class="search-bar">
       </div>
+      <!-- contact-chat -->
       <div class="contact-chat">
       </div>
     </section>
 
+    <!-- #Section chat -->
     <section id="chat">
       <div class="contact-menu">
       </div>
