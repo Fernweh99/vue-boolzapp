@@ -1,4 +1,54 @@
+/* Generics */
 body {
   height: 100vh;
   background: linear-gradient(to bottom, #009688 15%, #DADBD4 15%, #DADBD4 100%);
+  padding: 10px 0;
+}
+
+section {
+  height: 100%;
+}
+
+/* #Main */
+#root {
+  height: 100%;
+  display: flex;
+}
+
+/* #Section contacts */
+#contacts {
+  flex-basis: 450px;
+  background-color: darkslateblue;
+  display: flex;
+  flex-direction: column;
+}
+
+/* User Menu */
+.user-menu {
+  height: 80px;
+  background-color: #d1d1d1;
+}
+
+/* receive notific */
+.receive-notific {
+  height: 90px;
+  background-color: #8EDAFB;
+}
+
+/* search bar */
+.search-bar {
+  height: 50px;
+  background-color: #d1d1d1;
+}
+
+/* contact chat */
+.contact-chat {
+  height: 100%;
+  background-color: white;
+}
+
+/* #Section chat */
+#chat {
+  flex-grow: 1;
+  background-color: darkcyan;
 }
