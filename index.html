@@ -52,7 +52,7 @@
       <!-- contact-chat -->
       <div class="contact-list">
         <ul class="list-group">
-          <li v-for="(contact, i) in contacts" @click="currentIndex = i" class="list-group-item" :class="{active : i === currentIndex}" role="button">
+          <li v-for="(contact, i) in searchContacts" @click="currentNameIndex = contact.name" class="list-group-item" :class="{active : contact.name === currentNameIndex}" role="button">
             <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
             <span>{{ contact.name }}</span>
           </li>
@@ -64,7 +64,7 @@
     <section id="chat">
       <!-- contact menu -->
       <div class="contact-menu">
-        <div v-for="(contact, i) in contacts" v-if="i === currentIndex" class="contact-detail">
+        <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="contact-detail">
           <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
           <div class="d-inline-block">
             <span>{{ contact.name }}</span>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <!-- chat area -->
-      <div v-for="(contact, i) in contacts" v-if="i === currentIndex" class="chat-area">
+      <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="chat-area">
         <div v-for="mex in contact.messages" class="message" :class="[{ sent: mex.status === 'sent'},{'received': mex.status === 'received'}]">
           <span class="text-message">{{ mex.text }}</span>
           <p class="date">{{ mex.date }}</p>
