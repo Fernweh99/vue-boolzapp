@@ -4,10 +4,8 @@ const app = new Vue({
   el: "#root",
   data: {
     currentNameIndex: "Michele",
-    currentI: 0,
     currentTextMessage: "",
     textSearch: "",
-    searchContacts: [], 
     user: {
       name: 'Nome Utente',
       avatar: '_io'
@@ -92,7 +90,7 @@ const app = new Vue({
   },
   computed: {
     getContactsSearch() {
-      this.searchContacts = this.contacts.filter(contact => {
+      return this.contacts.filter(contact => {
         const firstname = contact.name.toLowerCase();
         const search = this.textSearch.toLowerCase();
         return (firstname.includes(search)) 

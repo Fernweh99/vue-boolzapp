@@ -52,7 +52,7 @@
       <!-- contact-chat -->
       <div class="contact-list">
         <ul class="list-group">
-          <li v-for="(contact, i) in searchContacts" @click="currentNameIndex = contact.name" class="list-group-item" :class="{active : contact.name === currentNameIndex}" role="button">
+          <li v-for="(contact, i) in getContactsSearch" @click="currentNameIndex = contact.name" class="list-group-item" :class="{active : contact.name === currentNameIndex}" role="button">
             <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
             <span>{{ contact.name }}</span>
           </li>
