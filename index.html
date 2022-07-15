@@ -80,6 +80,11 @@
       <!-- chat area -->
       <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="chat-area">
         <div v-for="mex in contact.messages" class="message" :class="[{ sent: mex.status === 'sent'},{'received': mex.status === 'received'}]">
+          <i @click="toggle(mex)" class="fa-solid fa-sort-down"></i>
+          <div v-show="mex.isActive === true" class="message-options">
+            <div class="message-delete">Cancella messaggio</div>
+            <div class="message-info">Info messaggio</div>
+          </div>
           <span class="text-message">{{ mex.text }}</span>
           <p class="date">{{ mex.date }}</p>
         </div>

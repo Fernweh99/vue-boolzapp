@@ -137,12 +137,23 @@ section > div{
 }
 
 .chat-area .message {
+  position: relative;
   display: inline-block;
   margin: 10px 0;
   min-width: 150px;
   padding: 0 15px;
-  padding-top: 10px;
+  padding-top: 12px;
   border-radius: 10px;
+}
+.chat-area .message i {
+  position: absolute;
+  right: 7px;
+  top: 0;
+  display: none;
+}
+
+.chat-area .message:hover i {
+  display: block;
 }
 
 .chat-area .message.sent {
@@ -165,6 +176,25 @@ section > div{
   text-align: right;
   color: #989898
 }
+/* Menu options message on click i */
+.chat-area .message .message-options {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  top: 90%;
+  width: 140px;
+  right: 0;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px rgba(155, 155, 155, 0.536);
+}
+
+.chat-area .message-options .message-delete:hover,
+.chat-area .message-options .message-info:hover {
+  background-color: #cececec2;
+  cursor: pointer;
+}
+
 
 /* input chat */
 .input-chat {
