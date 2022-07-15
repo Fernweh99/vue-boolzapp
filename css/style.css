@@ -96,14 +96,14 @@ section > div{
   padding: 5px;
 }
 
-/* contact chat */
-.contact-chat {
+/* contact list */
+.contact-list {
   height: calc(100% - 190px);
   background-color: white;
   overflow-y: auto;
 }
 
-.contact-chat ul li {
+.contact-list ul li {
   height: 85px;
 }
 
@@ -138,21 +138,19 @@ section > div{
 
 .chat-area .message {
   display: inline-block;
-  min-width: 200px;
-  max-width: 350px;
-  min-height: 50px;
   margin: 10px 0;
+  min-width: 150px;
   padding: 0 15px;
   padding-top: 10px;
   border-radius: 10px;
 }
 
-.chat-area .message.user {
+.chat-area .message.sent {
   background-color: #D5F9BA;
   margin-left: auto;
 }
 
-.chat-area .message.contact {
+.chat-area .message.received {
   background-color: white;
   margin-right: auto;
 }

@@ -46,11 +46,11 @@
       <div class="search-bar">
         <form class="d-flex h-100" role="search">
           <button class="btn btn-outline-success d-flex align-items-center"><i class="fa-solid fa-magnifying-glass"></i></button>
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" v-model="textSearch" placeholder="Search">
         </form>
       </div>
       <!-- contact-chat -->
-      <div class="contact-chat">
+      <div class="contact-list">
         <ul class="list-group">
           <li v-for="(contact, i) in contacts" @click="currentIndex = i" class="list-group-item" :class="{active : i === currentIndex}" role="button">
             <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name">
@@ -79,9 +79,9 @@
       </div>
       <!-- chat area -->
       <div v-for="(contact, i) in contacts" v-if="i === currentIndex" class="chat-area">
-        <div v-for="mex in contact.messages" class="message" :class="[{ user: mex.name === 'User'},{'contact': mex.name !== 'User'}]">
+        <div v-for="mex in contact.messages" class="message" :class="[{ sent: mex.status === 'sent'},{'received': mex.status === 'received'}]">
           <span class="text-message">{{ mex.text }}</span>
-          <p class="date">10:50</p>
+          <p class="date">{{ mex.date }}</p>
         </div>
       </div>
       <!-- input chat -->
