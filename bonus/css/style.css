@@ -22,6 +22,10 @@ section > div{
   flex-shrink: 0;
 }
 
+i {
+  cursor: pointer;
+}
+
 /* #Main */
 #root {
   width: 100%;
@@ -116,6 +120,10 @@ section .last-message {
 }
 
 /* #Section chat */
+.desktop-chat img {
+  border-radius: 0;
+}
+
 #chat {
   flex-basis: calc(100% - 450px);
   background-color: darkcyan;

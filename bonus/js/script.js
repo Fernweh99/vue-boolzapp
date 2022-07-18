@@ -3,9 +3,11 @@ const app = new Vue({
   name: 'whatsapp',
   el: "#root",
   data: {
-    currentNameIndex: "Michele",
+    currentNameIndex: "",
     currentTextMessage: "",
-    textSearch: "",
+    searchContact: "",
+    searchMessage: "",
+    searchBarActive: false,
     user: {
       name: 'Nome Utente',
       avatar: '_io'
@@ -103,10 +105,17 @@ const app = new Vue({
     getContactsSearch() {
       return this.contacts.filter(contact => {
         const firstname = contact.name.toLowerCase();
-        const search = this.textSearch.toLowerCase();
+        const search = this.searchContact.toLowerCase();
         return (firstname.includes(search)) 
       })
     },
+    // getMessageSearch(contact) {
+    //   return contact.messages.filter(mex => {
+    //     const message = mex.text.toLowerCase();
+    //     const search = this.searchMessage.toLowerCase();
+    //     return (message.includes(search)) 
+    //   })
+    // }
   },
   methods: {
     sendAndReceiveMessage() {
@@ -124,8 +133,11 @@ const app = new Vue({
       const date = new Date()
       return date.toLocaleString();
     },
-    toggle(mex) {
+    toggleIsActive(mex) {
       mex.isActive = !mex.isActive;
+    },
+    toggleSearchBar() {
+      this.searchBarActive = !this.searchBarActive;
     },
     deleteMex(contact, index) {
       contact.messages.splice(index, 1);
