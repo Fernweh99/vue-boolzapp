@@ -114,11 +114,11 @@ const app = new Vue({
         return contact.name === this.currentNameIndex;
       }) 
       const mex = this.contacts[index].messages; 
-      mex.push({date: this.getTimeNow(), text: this.currentTextMessage, status: 'sent'});
+      mex.push({date: this.getTimeNow(), text: this.currentTextMessage, status: 'sent', isActive: false});
+
       this.currentTextMessage = "";
-      setTimeout(()=>{
-        mex.push({date: this.getTimeNow(), text: 'ok', status: 'received'});
-      },1000)
+
+      setTimeout(()=>mex.push({date: this.getTimeNow(), text: 'ok', status: 'received', isActive: false}),1000)
     },
     getTimeNow() {
       const date = new Date()
@@ -126,6 +126,23 @@ const app = new Vue({
     },
     toggle(mex) {
       mex.isActive = !mex.isActive;
+    },
+    deleteMex(contact, index) {
+      contact.messages.splice(index, 1);
+    },
+    getLastAccess(contact) {
+      messages = contact.messages;
+      for (let i = messages.length - 1; i >= 0; i--) {
+        if (messages[i].status === "received" ) {
+          return messages[i].date;
+        }
+      }
+    },
+    getLastMessage(contact) {
+      messages = contact.messages;
+      if (messages.length) {
+        return messages[messages.length - 1].text;
+      }return
     }
   }
 })

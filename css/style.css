@@ -53,6 +53,14 @@ section > div{
   color: #B1B1B1;
 }
 
+section .last-access,
+section .last-message {
+  margin: 0;
+  font-size:13px;
+  color: #989898;
+}
+
+
 /* #Section contacts */
 #contacts {
   flex-basis: 450px;
@@ -119,12 +127,6 @@ section > div{
   align-items: center;
 }
 
-.contact-menu .last-access {
-  margin: 0;
-  font-size:13px;
-  color: #989898;
-}
-
 /* chat area */
 .chat-area {
   height: calc(100% - 140px);
@@ -181,7 +183,7 @@ section > div{
   position: absolute;
   background-color: white;
   z-index: 1;
-  top: 90%;
+  top: 30%;
   width: 140px;
   right: 0;
   font-size: 14px;
