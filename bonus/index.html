@@ -17,7 +17,7 @@
 <body class="container">
   <main id="root">
     <!-- #Section contacts -->
-    <section id="contacts">
+    <section id="contacts" v-if="!currentNameIndex || windowScreen > 998">
       <!-- user menu -->
       <div class="user-menu">
         <div class="user">
@@ -65,47 +65,46 @@
     </section>
 
     <!-- #Section chat -->
+    <section v-if="currentNameIndex" id="chat">
+      <!-- contact menu -->
+      <div class="contact-menu">
+        <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="contact-detail">
+          <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+          <div class="d-inline-block">
+            <span>{{ contact.name }}</span>
+            <p class="last-access">Ultimo accesso oggi alle {{ getLastAccess(contact) }}</p>
+          </div>
+        </div>
+        <div class="chat-options">
+          <i @click="toggleSearchBar" class="fa-solid fa-magnifying-glass"></i>
+          <input v-show="searchBarActive" v-model="searchMessage" class="form-control me-2" type="search" v-model="textSearch" placeholder="Search">
+          <i class="fa-solid fa-paperclip"></i>
+          <i @click="currentNameIndex = ''" class="fa-solid fa-arrow-right-to-bracket"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+      </div>
+      <!-- chat area -->
+      <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="chat-area">
+        <div v-for="(mex, index) in contact.messages" class="message" :class="[{ sent: mex.status === 'sent'},{'received': mex.status === 'received'}]">
+          <i @click="toggleIsActive(mex)" class="fa-solid fa-sort-down"></i>
+          <div v-show="mex.isActive" class="message-options">
+            <div @click="deleteMex(contact, index)" class="message-delete">Cancella messaggio</div>
+            <div class="message-info">Info messaggio</div>
+          </div>
+          <span class="text-message">{{ mex.text }}</span>
+          <p class="date">{{ mex.date }}</p>
+        </div>
+      </div>
+      <!-- input chat -->
+      <div class="input-chat">
+        <i class="fa-regular fa-face-smile"></i>
+        <input type="text" class="form-control" v-model="currentTextMessage" @keyup.enter="sendAndReceiveMessage" placeholder="Scrivi un messaggio">
+        <i v-if="!currentTextMessage" class="fa-solid fa-microphone"></i>
+        <i v-if="currentTextMessage" @click="sendAndReceiveMessage" class="fa-solid fa-paper-plane"></i>
+      </div>
+    </section>
     <div v-if="!currentNameIndex" class="desktop-chat">
       <img src="img/schermata-whattsapp.png" alt="">
-    </div>
-    <div v-if="currentNameIndex" class="container-section-chat w-100">
-      <section id="chat">
-        <!-- contact menu -->
-        <div class="contact-menu">
-          <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="contact-detail">
-            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
-            <div class="d-inline-block">
-              <span>{{ contact.name }}</span>
-              <p class="last-access">Ultimo accesso oggi alle {{ getLastAccess(contact) }}</p>
-            </div>
-          </div>
-          <div class="chat-options">
-            <i @click="toggleSearchBar" class="fa-solid fa-magnifying-glass"></i>
-            <input v-show="searchBarActive" v-model="searchMessage" class="form-control me-2" type="search" v-model="textSearch" placeholder="Search">
-            <i class="fa-solid fa-paperclip"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-        </div>
-        <!-- chat area -->
-        <div v-for="(contact, i) in contacts" v-if="contact.name === currentNameIndex" class="chat-area">
-          <div v-for="(mex, index) in contact.messages" class="message" :class="[{ sent: mex.status === 'sent'},{'received': mex.status === 'received'}]">
-            <i @click="toggleIsActive(mex)" class="fa-solid fa-sort-down"></i>
-            <div v-show="mex.isActive" class="message-options">
-              <div @click="deleteMex(contact, index)" class="message-delete">Cancella messaggio</div>
-              <div class="message-info">Info messaggio</div>
-            </div>
-            <span class="text-message">{{ mex.text }}</span>
-            <p class="date">{{ mex.date }}</p>
-          </div>
-        </div>
-        <!-- input chat -->
-        <div class="input-chat">
-          <i class="fa-regular fa-face-smile"></i>
-          <input type="text" class="form-control" v-model="currentTextMessage" @keyup.enter="sendAndReceiveMessage" placeholder="Scrivi un messaggio">
-          <i v-if="!currentTextMessage" class="fa-solid fa-microphone"></i>
-          <i v-if="currentTextMessage" @click="sendAndReceiveMessage" class="fa-solid fa-paper-plane"></i>
-        </div>
-      </section>
     </div>
   </main>
   <script src="js/script.js"></script>

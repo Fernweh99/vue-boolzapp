@@ -31,7 +31,6 @@ i {
   width: 100%;
   height: 100%;
   display: flex;
-  box-shadow: 1px 1px 1px 1px rgba(147, 147, 147, 0.351);
 }
 
 /* #the same for section  */
@@ -67,12 +66,10 @@ section .last-message {
 
 /* #Section contacts */
 #contacts {
-  flex-basis: 450px;
+  flex-basis: 100%;
   background-color: darkslateblue;
   border-right: 1px solid rgba(211, 211, 211, 0.748);
 }
-
-/* user menu */
 
 /* receive notific */
 .receive-notific {
@@ -122,10 +119,15 @@ section .last-message {
 /* #Section chat */
 .desktop-chat img {
   border-radius: 0;
+  object-fit: cover;
+}
+
+.desktop-chat {
+  display: none;
 }
 
 #chat {
-  flex-basis: calc(100% - 450px);
+  flex-basis: 100%;
   background-color: darkcyan;
 }
 
@@ -133,6 +135,13 @@ section .last-message {
 .contact-menu .contact-detail{
   display: flex;
   align-items: center;
+}
+
+.chat-options .fa-arrow-right-to-bracket {
+  display: block;
+}
+.chat-options .fa-paperclip {
+  display: none;
 }
 
 /* chat area */
@@ -220,4 +229,28 @@ section .last-message {
   font-size: 25px;
   margin: 0 20px;
   color: #6B7376;
+}
+
+
+/******************************/
+/**********RESPONSIVE**********/
+/******************************/
+
+@media screen and (min-width: 998px) {
+  #chat {
+    display:block;
+    flex-basis: calc(100% - 450px);
+  }
+  .desktop-chat {
+    display: block;
+  }
+  #contacts {
+    flex-basis: 450px;
+  }
+  .chat-options .fa-arrow-right-to-bracket {
+    display: none;
+  }
+  .chat-options .fa-paperclip {
+    display: block;
+  }
 }

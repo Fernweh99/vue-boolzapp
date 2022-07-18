@@ -8,6 +8,7 @@ const app = new Vue({
     searchContact: "",
     searchMessage: "",
     searchBarActive: false,
+    windowScreen: window.innerWidth,
     user: {
       name: 'Nome Utente',
       avatar: '_io'
@@ -156,5 +157,10 @@ const app = new Vue({
         return messages[messages.length - 1].text;
       }return
     }
+  },
+  mounted() {
+    setInterval(() => {
+      this.windowScreen = window.innerWidth;
+    }, 300);
   }
 })
