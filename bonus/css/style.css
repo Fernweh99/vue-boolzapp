@@ -1,0 +1,215 @@
+/* Generics */
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, #009688 15%, #DADBD4 15%, #DADBD4 100%);
+  padding: 10px 0;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+section > div{
+  flex-shrink: 0;
+}
+
+/* #Main */
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  box-shadow: 1px 1px 1px 1px rgba(147, 147, 147, 0.351);
+}
+
+/* #the same for section  */
+/* user menu & contact menu */
+.user-menu, .contact-menu {
+  height: 70px;
+  background-color: #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.user-menu .user-options,
+.contact-menu .chat-options {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu .user-options > i, 
+.contact-menu .chat-options > i {
+  font-size: 23px;
+  margin-right: 15px;
+  color: #B1B1B1;
+}
+
+section .last-access,
+section .last-message {
+  margin: 0;
+  font-size:13px;
+  color: #989898;
+}
+
+
+/* #Section contacts */
+#contacts {
+  flex-basis: 450px;
+  background-color: darkslateblue;
+  border-right: 1px solid rgba(211, 211, 211, 0.748);
+}
+
+/* user menu */
+
+/* receive notific */
+.receive-notific {
+  height: 80px;
+  padding: 15px 20px;
+  background-color: #8EDAFB;
+  display: flex;
+}
+
+.receive-notific > div{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.receive-notific .bell {
+  background-color: white;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  margin-right: 15px;
+}
+
+.receive-notific .bell i {
+  font-size: 20px;
+  color: #8EDAFB;
+}
+
+/* search bar */
+.search-bar {
+  height: 40px;
+  background-color: #EAEAEA;
+  padding: 5px;
+}
+
+/* contact list */
+.contact-list {
+  height: calc(100% - 190px);
+  background-color: white;
+  overflow-y: auto;
+}
+
+.contact-list ul li {
+  height: 85px;
+}
+
+/* #Section chat */
+#chat {
+  flex-basis: calc(100% - 450px);
+  background-color: darkcyan;
+}
+
+/* contact menu */
+.contact-menu .contact-detail{
+  display: flex;
+  align-items: center;
+}
+
+/* chat area */
+.chat-area {
+  height: calc(100% - 140px);
+  background-image: url(../img/mine.jpg);
+  overflow-y: scroll;
+  padding: 0 40px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-area .message {
+  position: relative;
+  display: inline-block;
+  margin: 10px 0;
+  min-width: 150px;
+  padding: 0 15px;
+  padding-top: 12px;
+  border-radius: 10px;
+}
+.chat-area .message i {
+  position: absolute;
+  right: 7px;
+  top: 0;
+  display: none;
+}
+
+.chat-area .message:hover i {
+  display: block;
+}
+
+.chat-area .message.sent {
+  background-color: #D5F9BA;
+  margin-left: auto;
+}
+
+.chat-area .message.received {
+  background-color: white;
+  margin-right: auto;
+}
+
+.chat-area .text-message {
+  font-size: 14px
+}
+
+.chat-area .date {
+  font-size: 10px;
+  margin-bottom: 5px;
+  text-align: right;
+  color: #989898
+}
+/* Menu options message on click i */
+.chat-area .message .message-options {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  top: 30%;
+  width: 140px;
+  right: 0;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px rgba(155, 155, 155, 0.536);
+}
+
+.chat-area .message-options .message-delete:hover,
+.chat-area .message-options .message-info:hover {
+  background-color: #cececec2;
+  cursor: pointer;
+}
+
+
+/* input chat */
+.input-chat {
+  height: 70px;
+  background-color: #F3EEE9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.input-chat i {
+  font-size: 25px;
+  margin: 0 20px;
+  color: #6B7376;
+}
