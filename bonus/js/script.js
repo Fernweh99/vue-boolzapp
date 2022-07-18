@@ -8,6 +8,7 @@ const app = new Vue({
     searchContact: "",
     searchMessage: "",
     searchBarActive: false,
+    menu3DotActive: false,
     windowScreen: window.innerWidth,
     user: {
       name: 'Nome Utente',
@@ -140,8 +141,19 @@ const app = new Vue({
     toggleSearchBar() {
       this.searchBarActive = !this.searchBarActive;
     },
+    toggle3DotMenu() {
+      this.menu3DotActive = !this.menu3DotActive;
+    },
     deleteMex(contact, index) {
       contact.messages.splice(index, 1);
+    },
+    deleteChat() {
+      const index = this.contacts.findIndex(contact =>{
+        return contact.name === this.currentNameIndex;
+      }) 
+      curMessages = this.contacts[index].messages
+      curMessages.splice(0, curMessages.length);
+      this.toggle3DotMenu();
     },
     getLastAccess(contact) {
       messages = contact.messages;

@@ -44,13 +44,13 @@ i {
 }
 
 .user-menu .user-options,
-.contact-menu .chat-options {
+.contact-menu .chat-menu {
   display: flex;
   align-items: center;
 }
 
 .user-menu .user-options > i, 
-.contact-menu .chat-options > i {
+.contact-menu .chat-menu > i {
   font-size: 23px;
   margin-right: 15px;
   color: #B1B1B1;
@@ -129,6 +129,7 @@ section .last-message {
 #chat {
   flex-basis: 100%;
   background-color: darkcyan;
+  position: relative;
 }
 
 /* contact menu */
@@ -137,12 +138,30 @@ section .last-message {
   align-items: center;
 }
 
-.chat-options .fa-arrow-right-to-bracket {
+.contact-menu .fa-arrow-right-to-bracket {
   display: block;
 }
-.chat-options .fa-paperclip {
+.contact-menu .fa-paperclip {
   display: none;
 }
+
+.contact-menu .chat-options {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  text-align: center;
+  border-radius: 5px;
+  width: 120px;
+  background-color: whitesmoke;
+}
+.contact-menu .chat-options .delete-chat {
+  cursor: pointer;
+  border-radius: 5px;
+}
+.contact-menu .chat-options .delete-chat:hover {
+  background-color: #cececec2;
+}
+
 
 /* chat area */
 .chat-area {
@@ -247,10 +266,10 @@ section .last-message {
   #contacts {
     flex-basis: 450px;
   }
-  .chat-options .fa-arrow-right-to-bracket {
+  .contact-menu .fa-arrow-right-to-bracket {
     display: none;
   }
-  .chat-options .fa-paperclip {
+  .contact-menu .fa-paperclip {
     display: block;
   }
 }

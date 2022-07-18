@@ -75,12 +75,15 @@
             <p class="last-access">Ultimo accesso oggi alle {{ getLastAccess(contact) }}</p>
           </div>
         </div>
-        <div class="chat-options">
+        <div class="chat-menu">
           <i @click="toggleSearchBar" class="fa-solid fa-magnifying-glass"></i>
           <input v-show="searchBarActive" v-model="searchMessage" class="form-control me-2" type="search" v-model="textSearch" placeholder="Search">
           <i class="fa-solid fa-paperclip"></i>
           <i @click="currentNameIndex = ''" class="fa-solid fa-arrow-right-to-bracket"></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <i @click="toggle3DotMenu" class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div v-show="menu3DotActive" class="chat-options">
+          <div @click="deleteChat" class="delete-chat">Svuota chat</div>
         </div>
       </div>
       <!-- chat area -->
